@@ -1,0 +1,4 @@
+include:
+  AuthorizationServer
+  ResourceServer
+  Oauth2Client
