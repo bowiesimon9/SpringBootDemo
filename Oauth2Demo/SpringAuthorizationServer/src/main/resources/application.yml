@@ -1,0 +1,32 @@
+oauth2:
+  clientId: clientid
+  clientSecret: secret
+  redirectUris: http://127.0.0.1:8080/login/oauth2/code/messaging-client-oidc
+    #https://oidcdebugger.com/debug
+    #http://localhost:8080/login/oauth2/code/
+#    http://localhost:8080/login/oauth2/code/github
+  user:
+    username: admin
+    password: admin
+
+server:
+  port: 9000
+
+spring:
+  jackson:
+    serialization:
+      indent-output: false
+      write-dates-as-timestamps: false
+    generator:
+      write_numbers_as_strings: true
+      write_bigdecimal_as_plain: true
+    defaultPropertyInclusion: non_empty
+    time-zone: Asia/Tokyo
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/testdb
+    username: ${DB_USER:postgres}
+    password: ${DB_PASS:1234}
+    pool:
+      validation-query: SELECT 1
+    properties:
+      preparedStatementCacheQueries: 0
